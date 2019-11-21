@@ -18,11 +18,20 @@
                     '''
                 }
             }
-            stage('Code Analysis' ) {
-                steps {
-                    echo 'Running analysis '
+            stage('Sonarqube') {
+                environment {
+                    scannerHome = tool 'sonarcanner'
                 }
-            }
+                steps {
+                    withSonarQubeEnv('sonarqube') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+                timeout(time: 10, unit: 'MINUTES') {
+                     waitForQualityGate abortPipeline: true
+                }
+            } 
+           }
+
             stage('Deploy') {
                 steps {
                     echo 'Deploying...'
@@ -30,4 +39,3 @@
             }
         }
     }
-
