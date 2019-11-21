@@ -5,9 +5,9 @@
                 steps {
                     echo 'Building application'
                     sh '''
-                        sudo yum install -y gcc-c++ make
-                        sudo curl -sL https://rpm.nodesource.com/setup_13.x | sudo -E bash -
-                        sudo sudo yum install -y nodejs
+                        yum install -y gcc-c++ make
+                        curl -sL https://rpm.nodesource.com/setup_13.x | sudo -E bash -
+                        yum install -y nodejs
                         npm install
                         npm run build
                     '''
