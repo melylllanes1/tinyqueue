@@ -5,7 +5,8 @@ pipeline {
             steps {
                 sh 'echo "Building application"'
                  sh '''
-                    sudo npm install
+                    ls
+                    npm install
                     npm run build
                 '''
             }
