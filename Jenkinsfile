@@ -24,7 +24,7 @@
                         scannerHome = tool 'SonarQubeScanner'
                     }
                     withSonarQubeEnv('sonarqube') {
-                    sh "echo ${scannerHome}"
+                    echo ${scannerHome}
                     sh "${scannerHome}/var/jenkins_home/sonar-scanner/sonar-scanner-3.3.0.1492-linux"
                 }
               }
