@@ -24,7 +24,11 @@
                 }
                 steps {
                     withSonarQubeEnv('sonarqube') {
-                    sh "${scannerHome}/bin/sonar-scanner"
+                    sh "${scannerHome}.docker.image('newtmitch/sonar-scanner').inside('-v /var/run/docker.sock:/var/run/docker.sock')"
+
+
+
+
                 }
                 timeout(time: 10, unit: 'MINUTES') {
                      waitForQualityGate abortPipeline: true
