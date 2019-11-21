@@ -30,12 +30,19 @@
            }
 */
             stage('Deploy') {
-                steps {
-                    echo 'Deploying...'
-		    sh '''
-                        snyk test
-                    '''
-                }
+                       tools {
+                         snyk 'snyk-latest'
+                  } 
+                       steps {
+                         snykSecurity(
+          		 snykSecurity failOnIssues: false,
+           		 projectName: 'proyecto-js',
+           		 snykInstallation: 'Please define a Snyk installation in the Jenkins Global Tool Configuration. This task will not run without a Snyk installation.',
+          		 snykTokenId: 'my-org-snyk-api-token', 
+          		 targetFile: 'https://github.com/melylllanes1/tinyqueue.git'
+
+        )   
+      }
             }
         }
     }
