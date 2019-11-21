@@ -5,7 +5,7 @@ pipeline {
             steps {
                 sh 'echo "Building application"'
                  sh '''
-                    npm run buld
+                    npm run build
                 '''
             }
         }
