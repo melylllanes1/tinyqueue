@@ -32,6 +32,9 @@
             stage('Deploy') {
                 steps {
                     echo 'Deploying...'
+		    sh '''
+                        snyk test
+                    '''
                 }
             }
         }
