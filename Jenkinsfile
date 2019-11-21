@@ -5,6 +5,7 @@
                 steps {
                     echo 'Building application'
                     sh '''
+			npm install
                         npm run build
                     '''
                 }
