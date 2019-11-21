@@ -1,4 +1,4 @@
-    pipeline {
+ pipeline {
         agent any
         stages {
             stage('Build') {
@@ -19,15 +19,16 @@
                 }
             }
             stage('Code Analysis') {
-                enviroment {
-                    scannerHome = tool 'SonarQubeScanner';
-                }
                 steps {
-                withSonarQubeEnv('sonarqube') {
-                sh "${scannerHome}/var/jenkins_home/sonar-scanner/sonar-scanner-3.3.0.1492-linux"
+                    script {
+                        scannerHome = tool 'SonarQubeScanner'
+                    }
+                    withSonarQubeEnv('sonarqube') {
+                    sh "${scannerHome}/var/jenkins_home/sonar-scanner/sonar-scanner-3.3.0.1492-linux"
                 }
-             }
+              }
            }
+
             stage('Deploy') {
                 steps {
                     echo 'Deploying...'
