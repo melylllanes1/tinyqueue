@@ -18,7 +18,7 @@
                     '''
                 }
             }
-            stage('code Analysis') {
+            stage('Code Analysis') {
                 environment {
                     scannerHome = tool 'sonarscanner'
                 }
