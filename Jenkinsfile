@@ -5,11 +5,6 @@
                 steps {
                     echo 'Building application'
                     sh '''
-                        whoami
-                        yum install -y gcc-c++ make
-                        curl -sL https://rpm.nodesource.com/setup_13.x | sudo -E bash -
-                        yum install -y nodejs
-                        npm install
                         npm run build
                     '''
                 }
@@ -22,15 +17,16 @@
                     '''
                 }
             }
-            stage('Code Analysis') {
+            stage('Code' ) {
                 steps {
                         sh 'echo "Running tests"'
                 }
             }
             stage('Deploy') {
                 steps {
-                    sh 'echo "Deploying..."'
+                    sh 'echo "Deploying"'
                 }
             }
         }
     }
+
