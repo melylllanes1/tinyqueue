@@ -18,7 +18,7 @@
                     '''
                 }
             }
-            stage('Code Analysis') {
+/*           stage('Code Analysis') {
                 steps {
                     script {
                         scannerHome = tool 'SonarQubeScanner'
@@ -28,7 +28,7 @@
                 }
               }
            }
-
+*/
             stage('Deploy') {
                 steps {
                     echo 'Deploying...'
