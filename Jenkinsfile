@@ -20,7 +20,7 @@
             }
             stage('Code Analysis') {
                 environment {
-                    scannerHome = tool 'sonarqube'
+                    scannerHome = tool 'sonascanner'
                 }
                 steps {
                     withSonarQubeEnv('sonarqube') {
