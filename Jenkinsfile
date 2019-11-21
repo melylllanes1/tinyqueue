@@ -18,7 +18,7 @@
                     '''
                 }
             }
-/*           stage('Code Analysis') {
+           stage('Code Analysis') {
                 steps {
                     script {
                         scannerHome = tool 'SonarQubeScanner'
@@ -28,8 +28,8 @@
                 }
               }
            }
-*/
-            stage('Deploy') {
+
+ /*           stage('Deploy') {
                        tools {
                          snyk 'snyk-latest'
                   } 
@@ -43,6 +43,8 @@
 
         )   
       }
-            }
+            } /*
         }
     }
+
+
