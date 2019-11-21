@@ -5,27 +5,27 @@
                 steps {
                     echo 'Building application'
                     sh '''
-			npm install
+                        npm install
                         npm run build
                     '''
                 }
             }
             stage('Test') {
                 steps {
-                    sh 'echo "Running test"'
+                    echo 'Running test...'
                     sh '''
                         npm test
                     '''
                 }
             }
-            stage('Code' ) {
+            stage('Code Analysis' ) {
                 steps {
-                        sh 'echo "Running tests"'
+                    echo 'Running analysis '
                 }
             }
             stage('Deploy') {
                 steps {
-                    sh 'echo "Deploying"'
+                    echo 'Deploying...'
                 }
             }
         }
