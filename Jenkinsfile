@@ -18,7 +18,7 @@
                     '''
                 }
             }
-            stage('Sonarqube') {
+            stage('code Analysis') {
                 environment {
                     scannerHome = tool 'sonarscanner'
                 }
@@ -28,8 +28,8 @@
                 }
                 timeout(time: 10, unit: 'MINUTES') {
                      waitForQualityGate abortPipeline: true
-                }
-            } 
+                  }
+              } 
            }
 
             stage('Deploy') {
