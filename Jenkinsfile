@@ -19,11 +19,11 @@ pipeline {
                 }
             }
             stage('Code Analysis') {
-                echo 'Running analysis...'
                 environment {
                     scannerHome = tool 'SonarQubeScanner'
                 }
             steps {
+                    echo 'Running analysis...'
                 withSonarQubeEnv('sonarqube') {
                     // sh "${scannerHome}/bin/sonar-scanner"
                      sh '''
