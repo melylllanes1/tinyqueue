@@ -25,7 +25,7 @@ pipeline {
             steps {
 		sh '''
                         npm install
-			npm install -g typescript
+			
                     '''
                     echo 'Running analysis...'
                 withSonarQubeEnv('sonarcloud') {
@@ -36,13 +36,12 @@ pipeline {
 
             stage('Build2') {
                       environment {
-                          SNYK_TOKEN = credentials 'my-project-snyk-api-token'
+                          SNYK_TOKEN = credentials('my-project-snyk-api-token')
                           } 
                 
                 steps {
                     echo 'Running test...'
                   sh """ 
-                 
                   snyk auth ${SNYK_TOKEN}
                   snyk test --json \
                     --severity-threshold=high \
