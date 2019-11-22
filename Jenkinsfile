@@ -25,7 +25,7 @@
                          sh "echo ${scannerHome}"
                     }
                     withSonarQubeEnv('sonarqube') {
-                    sh "${scannerHome}"
+                    sh """${scannerHome}/bin/sonnar-scanner"""
                 }
               }
            }
