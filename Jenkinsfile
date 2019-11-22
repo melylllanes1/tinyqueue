@@ -41,13 +41,15 @@ pipeline {
                    // sh '''
                     //snyk test https://github.com/melylllanes1/tinyqueue.git
                       //  '''
+
+                  snykSecurity(
                     snykSecurity organisation: 'berenicehdr',
                    // snykSecurity projectName: 'project-js',
                     severity: 'high',
                     snykInstallation: 'SynkSecurity',
                     snykTokenId: 'my-project-snyk-api-token',
                     targetFile: 'index.js'
-
+                    )
                     sh '''
                      snyk test --json
                      '''
