@@ -49,8 +49,8 @@ pipeline {
                       snykInstallation: 'SynkSecurity',
                       snykTokenId: 'my-project-snyk-api-token',
                       targetFile: 'index.js', 
-                      sh ' snyk auth [my-project-snyk-api-token]', 
-                      sh 'sh ' snyk test --json '            
+                      sh ' snyk auth my-project-snyk-api-token', 
+                      sh ' snyk test --json '            
                 }
            }
         }
