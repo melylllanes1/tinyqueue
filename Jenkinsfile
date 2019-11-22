@@ -48,11 +48,8 @@ pipeline {
                       severity: 'high',
                       snykInstallation: 'SynkSecurity',
                       snykTokenId: 'my-project-snyk-api-token',
-                    //    sh '''
-                     //snyk test --json
-                     //'''
                        targetFile: 'index.js'
-                    )
+                    
                 }
             }
         }
