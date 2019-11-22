@@ -18,23 +18,17 @@ pipeline {
                     '''
                 }
             }
- /*           stage('Code Analysis') {
+	 stage('Code Analysis') {
                 environment {
-                    scannerHome = tool 'SonarQubeScanner'
+                    scannerHome = tool 'SonarCloud'
                 }
             steps {
                     echo 'Running analysis...'
-                withSonarQubeEnv('sonarqube') {
-                    // sh "${scannerHome}/bin/sonar-scanner"
-                     sh '''
-                        cd /var/jenkins_home/sonar-scanner/sonar-scanner-3.3.0.1492-linux/bin
-                        pwd
-                        ./sonar-scanner
-                    '''
+                withSonarQubeEnv('sonarcloud') {
+                    sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
         }
-*/
             stage('snyk dependency scan') {
                 steps {
                     echo 'Deploying...'
@@ -50,5 +44,4 @@ pipeline {
                 }
            }
         }
-    
-}
+    }
