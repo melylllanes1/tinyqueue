@@ -35,9 +35,15 @@ pipeline {
             }
         }
 */
-            stage('Deploy') {
+            stage('snyk dependency scan') {
                 steps {
                     echo 'Deploying...'
+                    snykSecurity organisation: 'berenicehdr',
+                    //snykSecurity projectName: 'project-js',
+                    severity: 'high',
+                    snykInstallation: 'SynkSecurity',
+                    snykTokenId: 'my-project-snyk-api-token',
+                    targetFile: 'https://github.com/berenicehdr/robovac.git'
                 }
             }
         }
