@@ -19,12 +19,18 @@ pipeline {
                 }
             }
             stage('Code Analysis') {
+                echo 'Running analysis...'
                 environment {
                     scannerHome = tool 'SonarQubeScanner'
                 }
             steps {
                 withSonarQubeEnv('sonarqube') {
-                    sh ".${scannerHome}/bin/sonar-scanner"
+                    // sh "${scannerHome}/bin/sonar-scanner"
+                     sh '''
+                        cd /var/jenkins_home/sonar-scanner/sonar-scanner-3.3.0.1492-linux/bin
+                        pwd
+                        ./sonar-scanner
+                    '''
                 }
             }
         }
