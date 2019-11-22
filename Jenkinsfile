@@ -18,7 +18,7 @@ pipeline {
                     '''
                 }
             }
-            stage('Code Analysis') {
+ /*           stage('Code Analysis') {
                 environment {
                     scannerHome = tool 'SonarQubeScanner'
                 }
@@ -34,7 +34,7 @@ pipeline {
                 }
             }
         }
-
+*/
             stage('Deploy') {
                 steps {
                     echo 'Deploying...'
