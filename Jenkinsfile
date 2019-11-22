@@ -27,7 +27,8 @@
                     withSonarQubeEnv('sonarqube') {
                     //sh """${scannerHome}/bin/sonnar-scanner"""
 		    sh '''
-			/var/jenkins_home/sonar-scanner/sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner
+			cd /var/jenkins_home/sonar-scanner/sonar-scanner-3.3.0.1492-linux/bin
+                        ./sonar-scanner
 			'''
 
                 }
