@@ -37,7 +37,7 @@ pipeline {
                 
                 steps {
                     echo 'Running test...'
-                    
+                  sh """ 
                   //pip install -r requirements.txt
                   snyk auth ${SNYK_TOKEN}
                   snyk test --json \
