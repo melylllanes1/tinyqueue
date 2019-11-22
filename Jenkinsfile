@@ -25,6 +25,7 @@ pipeline {
             steps {
 		sh '''
                         npm install
+			npm install -g typescript
                     '''
                     echo 'Running analysis...'
                 withSonarQubeEnv('sonarcloud') {
