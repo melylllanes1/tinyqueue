@@ -18,7 +18,7 @@ pipeline {
                     '''
                 }
             }
-	 stage('Code Analysis') {
+     stage('Code Analysis') {
                 environment {
                     scannerHome = tool 'SonarCloud'
                 }
@@ -29,19 +29,28 @@ pipeline {
                 }
             }
         }
-            stage('snyk dependency scan') {
+
+            stage('Build2') {
+                      environment {
+                          SNYK_TOKEN = credentials('my-project-snyk-api-token')
+                          } 
+
                 steps {
-                    echo 'Deploying...'
-                  // snykSecurity(
-                      snykSecurity organisation: 'berenicehdr',
-                   // snykSecurity projectName: 'project-js',
-                      severity: 'high',
-                      snykInstallation: 'SynkSecurity',
-                      snykTokenId: 'my-project-snyk-api-token',
-                      targetFile: 'index.js' 
-                     // sh ' snyk auth', 
-                      sh ' snyk test --json '            
+                    sh """
+                  //pip install -r requirements.txt
+                  snyk auth ${SNYK_TOKEN}
+                  snyk test --json \
+                    --severity-threshold=high \
+                    --file=index.js \
+                    --org=cloudbees \
+                    --project-name=project-js
+                """  
+
+
                 }
-           }
+            }
+
+
         }
     }
+
