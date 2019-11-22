@@ -38,6 +38,8 @@ pipeline {
             stage('snyk dependency scan') {
                 steps {
                     echo 'Deploying...'
+
+                    sh ' snyk test --json '
                    // sh '''
                     //snyk test https://github.com/melylllanes1/tinyqueue.git
                       //  '''
