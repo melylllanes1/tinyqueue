@@ -34,11 +34,12 @@ pipeline {
                       environment {
                           SNYK_TOKEN = credentials('my-project-snyk-api-token')
                           } 
-
+                echo 'Running test...'
                 steps {
                     sh """
                   //pip install -r requirements.txt
                   snyk auth ${SNYK_TOKEN}
+                  echo 
                   snyk test --json \
                     --severity-threshold=high \
                     --file=index.js \
