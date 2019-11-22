@@ -43,7 +43,7 @@ pipeline {
                     severity: 'high',
                     snykInstallation: 'SynkSecurity',
                     snykTokenId: 'my-project-snyk-api-token',
-                    targetFile: '/root/tinyqueue/index.js'
+                    targetFile: '/tinyqueue/index.js'
                 }
             }
         }
