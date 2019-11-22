@@ -23,6 +23,9 @@ pipeline {
                     scannerHome = tool 'SonarCloud'
                 }
             steps {
+		sh '''
+                        npm install
+                    '''
                     echo 'Running analysis...'
                 withSonarQubeEnv('sonarcloud') {
                     sh "${scannerHome}/bin/sonar-scanner"
@@ -32,7 +35,7 @@ pipeline {
 
             stage('Build2') {
                       environment {
-                          SNYK_TOKEN = credentials('my-project-snyk-api-token')
+                          SNYK_TOKEN = credentials 'my-project-snyk-api-token'
                           } 
                 
                 steps {
