@@ -20,7 +20,7 @@
             }
             stage('Code Analysis') {
                 steps {
-                    script {
+                    environment {
                         scannerHome = tool 'SonarQubeScanner'
                          sh "echo ${scannerHome}"
                     }
