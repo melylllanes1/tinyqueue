@@ -40,7 +40,7 @@ pipeline {
                      } 
               steps {
                 snykSecurity(
-                  snykSecurity projectName: 'project-js',
+                  projectName: 'project-js',
                   severity: 'high',
                   snykInstallation: 'SynkSecurity',
                   snykTokenId: 'my-projectjs-snyk-api-token',
