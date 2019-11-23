@@ -35,15 +35,18 @@ pipeline {
         }
 
             stage('Build2') {
-                      environment {
-                          SNYK_TOKEN = credentials('my-project-snyk-api-token')
-                          } 
-                
-                steps {
-                    echo 'Running test...'
-                 
-                 sh ' snyk auth $SNYK_TOKEN'
-                  
+              tools {
+                 snyk 'sSynkSecurity'
+                     } 
+              steps {
+                snykSecurity(
+                  snykSecurity projectName: 'project-js',
+                  severity: 'high',
+                  snykInstallation: 'SynkSecurity',
+                  snykTokenId: 'my-projectjs-snyk-api-token',
+                  targetFile: '/var/jenkins_home/index.js'
+        )   
+      	}                        
                 }
             }
 
