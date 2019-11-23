@@ -46,7 +46,9 @@ pipeline {
                   snykTokenId: 'my-projectjs-snyk-api-token'
 //,
                 //  targetFile: 'prueba.js '
-        )   
+        )  
+
+		sh ' snyk test --json' 
       	}                        
                 }
             }
