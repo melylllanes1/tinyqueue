@@ -41,16 +41,9 @@ pipeline {
                 
                 steps {
                     echo 'Running test...'
-                  sh """ 
-                  snyk auth ${SNYK_TOKEN}
-                  snyk test --json \
-                    --severity-threshold=high \
-                    --file=index.js \
-                    --org=cloudbees \
-                    --project-name=project-js
-                """  
-
-
+                 
+                 sh ' snyk auth $SNYK_TOKEN'
+                  
                 }
             }
 
