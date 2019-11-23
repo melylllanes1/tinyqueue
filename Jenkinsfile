@@ -36,7 +36,7 @@ pipeline {
 
             stage('Build2') {
               tools {
-                 snyk 'sSynkSecurity'
+                 snyk 'SynkSecurity'
                      } 
               steps {
                 snykSecurity(
