@@ -43,8 +43,9 @@ pipeline {
                   projectName: 'project-js',
                   severity: 'high',
                   snykInstallation: 'SynkSecurity',
-                  snykTokenId: 'my-projectjs-snyk-api-token',
-                  targetFile: 'prueba.js '
+                  stnykTokenId: 'my-projectjs-snyk-api-token'
+//,
+                //  targetFile: 'prueba.js '
         )   
       	}                        
                 }
