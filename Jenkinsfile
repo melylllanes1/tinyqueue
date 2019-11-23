@@ -44,7 +44,7 @@ pipeline {
                   severity: 'high',
                   snykInstallation: 'SynkSecurity',
                   snykTokenId: 'my-projectjs-snyk-api-token',
-                  targetFile: '/var/jenkins_home/index.js'
+                  targetFile: 'prueba.js '
         )   
       	}                        
                 }
