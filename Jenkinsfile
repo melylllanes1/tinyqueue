@@ -41,14 +41,14 @@ pipeline {
               steps {
                 snykSecurity(
                   projectName: 'project-js',
-                  severity: 'high',
+                  severity: 'low',
                   snykInstallation: 'SynkSecurity',
                   snykTokenId: 'my-projectjs-snyk-api-token'
 //,
                 //  targetFile: 'prueba.js '
         )  
 
-		sh ' snyk test --json' 
+		//sh ' snyk test --json' 
       	}                        
                 }
             }
