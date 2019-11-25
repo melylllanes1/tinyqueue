@@ -34,26 +34,30 @@ pipeline {
             }
         }
 
-            stage('Build2') {
+            stage('Security with Snyk') {
               tools {
                  snyk 'SynkSecurity'
                      } 
               steps {
+                  echo'Running Security Analysis...'
                 snykSecurity(
                   projectName: 'project-js',
-                  severity: 'low',
+                  severity: 'high',
                   snykInstallation: 'SynkSecurity',
                   snykTokenId: 'my-projectjs-snyk-api-token'
-//,
+
                 //  targetFile: 'prueba.js '
         )  
 
 		//sh ' snyk test --json' 
       	}                        
                 }
+
+            stage('Deployment') {
+               steps {
+                  echo  'Deploying ...'
+                     }
+                    }
             }
-
-
         }
     
-
