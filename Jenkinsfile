@@ -18,6 +18,24 @@ pipeline {
                     '''
                 }
             }
+
+            stage('Security with Snyk') {
+              tools {
+                 snyk 'SynkSecurity'
+                     }
+              steps {
+                  echo'Running Security Analysis...'
+                snykSecurity(
+                  projectName: 'project-js',
+                  severity: 'high',
+                  snykInstallation: 'SynkSecurity',
+                  snykTokenId: 'my-projectjs-snyk-api-token'
+
+                //  targetFile: 'prueba.js '
+                         )
+        }
+                }
+
      stage('Code Analysis') {
                 environment {
                     scannerHome = tool 'SonarCloud'
@@ -37,22 +55,7 @@ pipeline {
             
             }
 
-            stage('Security with Snyk') {
-              tools {
-                 snyk 'SynkSecurity'
-                     } 
-              steps {
-                  echo'Running Security Analysis...'
-                snykSecurity(
-                  projectName: 'project-js',
-                  severity: 'high',
-                  snykInstallation: 'SynkSecurity',
-                  snykTokenId: 'my-projectjs-snyk-api-token'
-
-                //  targetFile: 'prueba.js '
-                         )  
-      	}                        
-                }
+           
 
             stage('Deployment') {
                steps {
