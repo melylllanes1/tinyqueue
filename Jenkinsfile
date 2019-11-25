@@ -27,7 +27,7 @@ pipeline {
                   echo'Running Security Analysis...'
                 snykSecurity(
                   projectName: 'project-js',
-                  severity: 'high',
+                  severity: 'medium',
                   snykInstallation: 'SynkSecurity',
                   snykTokenId: 'my-projectjs-snyk-api-token'
 
