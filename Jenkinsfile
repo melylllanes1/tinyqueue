@@ -41,10 +41,6 @@ pipeline {
                     scannerHome = tool 'SonarCloud'
                 }
             steps {
-		sh '''
-                        npm install
-			
-                    '''
                     echo 'Running analysis...'
                 withSonarQubeEnv('sonarcloud') {
                     sh "${scannerHome}/bin/sonar-scanner"
@@ -59,7 +55,7 @@ pipeline {
 
             stage('Deployment') {
                steps {
-                  echo  'Deploying ...'
+                  echo  'Deploying succesful!'
                      }
                     }
             }
