@@ -30,13 +30,11 @@ pipeline {
                     echo 'Running analysis...'
                 withSonarQubeEnv('sonarcloud') {
                     sh "${scannerHome}/bin/sonar-scanner"
+
+
                 }
             }
-            steps{
-               echo ' The code coverage...'
-
-
-               }
+            
             }
 
             stage('Security with Snyk') {
