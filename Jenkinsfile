@@ -32,7 +32,12 @@ pipeline {
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
-        }
+            steps{
+               echo ' The code coverage...'
+
+
+               }
+            }
 
             stage('Security with Snyk') {
               tools {
